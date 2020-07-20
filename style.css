@@ -1,0 +1,77 @@
+.header{
+   
+ background-color : aqua;
+
+}
+h1{
+    background-color:black;
+    padding: 30px;
+  
+}
+hr{
+ width: 50%;
+    border: 2px solid black;
+    
+}
+.container ,h3{
+    text-align: center;
+    background-color : aquamarine;
+    padding: 40px;border-radius: 40px;
+
+    
+}
+h4{
+    background-color :aquamarine;
+    border-radius: 40px;
+padding: 40px;
+        }  
+*{
+    font-size: 28px;
+    
+}
+#slider{
+    overflow: hidden;
+}
+#slider figure{
+    position: relative;
+    width: 500%;
+    margin: 0;
+    left: 0;
+    animation: 20s slider infinite;
+    
+}
+#slider figure img{
+    width: 20%;
+    float: left;
+}
+@keyframes slider{
+    0%{
+        left: 0%;
+    }
+    20%{
+        left: 0%;
+    }
+    25%{
+        left:-100%;
+    }
+    45%{
+        left:-100% ;
+    }
+    50%{
+        left:-200% ;
+    }
+    70%{
+        left: -200%;
+    }
+    75%{
+        left: -300%;
+    }
+    95%{
+        left: -300%;
+    }
+    100%{
+        left: -400%;
+    }
+
+    
+}
