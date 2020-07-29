@@ -16,13 +16,101 @@
         margin-left:130px;
         padding: 10px;
         padding bottom :10px;
+    
     }
+        .form-row{
+            width: 80%;
+            align-content: center;
+            margin: auto;
+        }
+        .services{
+            margin-left: 200px;
+        }
+        .abc{
+            margin-left: 600px;
+            margin-top: -300px;
+        }
+       
+        }
       </style>  
   </head>
   <body>
 
+      
+      
+<!--insert w3school cpy -->
+
+      <?php
+if(isset($_POST['user_submit']))
+{
+$servername = "localhost";
+$username = root;
+$password = "";
+$dbname = "userdetails";
+    
+$emailid=$_POST['emailid'];
+$first_name=$_POST['first_name'];
+$last_name=$_POST['last_name'];
+$phno=$_POST['phno'];
+$date=$_POST['date'];
+$address=$_POST['address'];
 
 
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+
+$sql = "INSERT INTO subscriberdetails( emailid,firstname, lasttname, phno, date, address)
+VALUES ( '$emailid','$first_name', '$last_name','$phno','$date','$address')";
+
+if ($conn->query($sql) === TRUE) {
+  echo "New record created successfully";
+} 
+else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
+
+
+
+
+    
+    echo 'submitted';
+    
+    $emailid=$_POST['emailid'];
+    echo  $emailid;
+        
+    $first_name=$_POST['first_name'];
+    echo $first_name;
+    
+    $last_name=$_POST['last_name'];
+     echo $last_name;
+  
+    $phno=$_POST['phno'];
+      echo $phno;
+
+    $date=$_POST['date'];
+    echo  $date;
+    
+    $address=$_POST['address'];
+    echo $address;
+    
+}
+else{
+    echo 'not sumitted';
+} ?> 
+    
+
+      
+      
+      
+      
+      
+      
+<!--navbar-->
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="#">BSerene</a>
@@ -39,7 +127,7 @@
         <a class="nav-link" href="#">Veiw booking</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Add services</a>
+        <a class="nav-link" href="#">reviews</a>
         </li>
       <li class="nav-item">
         <a class="nav-link" href="#">logout</a>
@@ -53,6 +141,87 @@
 </nav>
 
 
+      
+      <feildset>
+   <h1 style="color: red;"><center>ENTER DETAILS</center></h1>            
+               
+            <!--form-->
+          
+<form method="post" action="#">
+  <div class="form-row">
+    <div class="col">
+        <label for="firstname" ><b>First name:</b> </label>
+      <input type="text" class="form-control" placeholder="First name" name="first_name" >
+    </div>
+    <div class="col">
+          <label for="lastname" ><b>Last name:</b> </label>
+      <input type="text" class="form-control" placeholder="Last name" name="last_name">
+    </div>
+  </div>
+</form>
+      
+      <form>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputEmail4">Email</label>
+      <input type="email" class="form-control" id="inputEmail4" name="emailid">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">Password</label>
+      <input type="password" class="form-control" id="inputPassword4">
+    </div>
+  </div>
+  <div class="form-row">
+    <label for="inputAddress">Address</label>
+    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" name="address">
+  </div>
+  <div class="form-row">
+    <label for="inputAddress2">Address 2</label>
+    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputCity">City</label>
+      <input type="text" class="form-control" id="inputCity">
+    </div>
+    <div class="form-group col-md-4">
+      <label for="inputState">State</label>
+      <select id="inputState" class="form-control">
+          
+        <option selected>Choose...</option>
+        <option>...</option>
+      </select>
+    </div><br>
+</form>
+          <form action=""methods="">
+              <div class="services">
+    <b >SERVICES NEEDED</b></br></br>
+
+<input type="checkbox" name="" checked="checked" > saloon</style></br></br>
+<input type="checkbox" name="" checked="checked" > hair styling</br></br>
+<input type="checkbox" name="" checked="checked " > disinfection and sanitaization</br></br>
+<input type="checkbox" name="" checked="checked"  > electricians</br></br>
+<input type="checkbox" name="" checked="checked" > fitness and meditation</br></br>
+<input type="checkbox" name="" checked="checked" > home cleaning</br></br>
+<input type="checkbox" name="" checked="checked"> pet services</br></br>
+<input type="checkbox" name="" checked="checked" > dry cleaning</br></br></div>
+
+<div class="abc">
+<label for="date" ><b>DATE:</b></label>
+<input type="date" name="date">date
+    </br></br><label for="phone no"><b>CONTACT NUMBER:</b></label>
+        <input type="text" name="phno">
+<</br></br>
+  <center> <a href="submit"><button disable="disabled"  name="user_submit">SUBMIT</button></a></center>
+
+</div>
+</form>
+
+
+
+   </feildset>   
+      
+      
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
